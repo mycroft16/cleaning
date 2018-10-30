@@ -1,0 +1,21 @@
+page-today {
+
+    .item-ios.item-block .item-inner, .item-md.item-block .item-inner {
+        border-bottom: none;
+    }
+    .item {
+        border-bottom: 1px solid #cccccc;
+    }
+    
+    .unscheduledTime {
+        background: repeating-linear-gradient(
+            45deg,
+            #ececec,
+            #ececec 10px,
+            #f5f5f5 10px,
+            #f5f5f5 20px
+        );
+        height: 60px;
+    }
+
+}
