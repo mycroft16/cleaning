@@ -1,43 +1,37 @@
+// ANGULAR
 import { NgModule, ErrorHandler } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+
+// RXJS
+import { StoreModule } from '@ngrx/store';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+
+// IONIC
 import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
-import { MyApp } from './app.component';
-
-import { ContactsPage } from '../pages/contacts/contacts';
-import { MorePage } from '../pages/more/more';
-import { NotificationsPage } from '../pages/notifications/notifications';
-import { SchedulePage } from '../pages/schedule/schedule';
-import { TabsPage } from '../pages/tabs/tabs';
-import { TodayPage } from '../pages/today/today';
-
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
+// CLEANING
+import { MyApp } from './app.component';
+import { PAGES } from '../pages';
 import { ScheduleService } from '../services/schedule.service';
 
 @NgModule({
   declarations: [
     MyApp,
-    ContactsPage,
-    MorePage,
-    NotificationsPage,
-    SchedulePage,
-    TabsPage,
-    TodayPage
+    ...PAGES
   ],
   imports: [
     BrowserModule,
-    IonicModule.forRoot(MyApp)
+    IonicModule.forRoot(MyApp, { tabsPlacement: 'bottom', tabsHideOnSubPages: true }),
+    // StoreModule.forRoot(STORES, { metaReducers }),
+    StoreDevtoolsModule.instrument(),
+    // EFFECTS
   ],
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
-    ContactsPage,
-    MorePage,
-    NotificationsPage,
-    SchedulePage,
-    TabsPage,
-    TodayPage
+    ...PAGES
   ],
   providers: [
     StatusBar,
