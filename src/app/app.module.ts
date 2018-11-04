@@ -14,30 +14,33 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 // CLEANING
 import { MyApp } from './app.component';
 import { PAGES } from '../pages';
-import { ScheduleService } from '../services/schedule.service';
+import { COMPONENTS } from '../components';
+import { STORES, EFFECTS, PROVIDERS, metaReducers } from './store';
 
 @NgModule({
   declarations: [
     MyApp,
-    ...PAGES
+    ...PAGES,
+    ...COMPONENTS
   ],
   imports: [
     BrowserModule,
     IonicModule.forRoot(MyApp, { tabsPlacement: 'bottom', tabsHideOnSubPages: true }),
-    // StoreModule.forRoot(STORES, { metaReducers }),
+    StoreModule.forRoot(STORES, { metaReducers }),
     StoreDevtoolsModule.instrument(),
-    // EFFECTS
+    EFFECTS
   ],
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
-    ...PAGES
+    ...PAGES,
+    ...COMPONENTS
   ],
   providers: [
     StatusBar,
     SplashScreen,
-    ScheduleService,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
+    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    ...PROVIDERS
   ]
 })
 export class AppModule {}
