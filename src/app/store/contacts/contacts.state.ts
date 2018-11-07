@@ -1,5 +1,5 @@
 import * as ContactsActions from './contacts.actions';
-import { IProperty } from '../../../models/property.model'
+import { IProperty } from '../../shared/interfaces/property.interface'
 
 export interface State {
     list: IProperty[];

@@ -1,7 +1,7 @@
 import 'rxjs/add/operator/do'
 import { Injectable } from '@angular/core'
 import { Observable } from 'rxjs'
-import { ApiOptions } from '../../../models/api.model'
+import { ApiOptions } from '../../shared/interfaces/api.interface'
 import { AppStore } from '../app.store'
 import { HttpClient, HttpHeaders } from '@angular/common/http'
 

@@ -1,5 +1,5 @@
 import { Action } from '@ngrx/store'
-import { IProperty } from '../../../models/property.model'
+import { IProperty } from '../../shared/interfaces/property.interface'
 
 export class ActionFactory {
     public loadContacts(accountId: number, userId: number): LoadContacts {

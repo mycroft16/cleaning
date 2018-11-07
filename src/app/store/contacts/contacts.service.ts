@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core'
 
 import { ApiService } from '../api/api.service'
 import { Observable } from 'rxjs'
-import { IProperty } from '../../../models/property.model'
+import { IProperty } from '../../shared/interfaces/property.interface'
 
 @Injectable()
 export class ContactsService {

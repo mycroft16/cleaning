@@ -1,5 +1,5 @@
-import { IClient } from './client.model'
-import { IPet } from './pet.model'
+import { IClient } from './client.interface'
+import { IPet } from './pet.interface'
 
 export interface IProperty {
     id: number;

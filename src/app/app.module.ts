@@ -1,6 +1,7 @@
 // ANGULAR
 import { NgModule, ErrorHandler } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { HttpClientModule } from '@angular/common/http'
 
 // RXJS
 import { StoreModule } from '@ngrx/store';
@@ -25,6 +26,7 @@ import { STORES, EFFECTS, PROVIDERS, metaReducers } from './store';
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
     IonicModule.forRoot(MyApp, { tabsPlacement: 'bottom', tabsHideOnSubPages: true }),
     StoreModule.forRoot(STORES, { metaReducers }),
     StoreDevtoolsModule.instrument(),
