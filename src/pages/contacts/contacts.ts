@@ -1,18 +1,22 @@
-import { Component } from '@angular/core';
-import { NavController } from 'ionic-angular';
+import { Component, ChangeDetectionStrategy } from '@angular/core'
+import { ModalController, NavController } from 'ionic-angular'
 import { Observable } from 'rxjs'
 import { AppStore } from '../../app/store/app.store'
-import { IProperty } from '../../app/shared/interfaces/property.interface';
+import { IProperty } from '../../app/shared/interfaces/property.interface'
+
+import { PropertyPage } from './property/property'
 
 @Component({
   selector: 'page-contacts',
-  templateUrl: 'contacts.html'
+  templateUrl: 'contacts.html',
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
+
 export class ContactsPage {
 
   public contacts: Observable<IProperty[]>;
 
-  constructor(private navCtrl: NavController, private store: AppStore) {
+  constructor(private modalCtrl: ModalController, private navCtrl: NavController, private store: AppStore) {
     this.contacts = this.store.select(state => state.contacts.list);
   }
 
@@ -20,7 +24,15 @@ export class ContactsPage {
     this.store.dispatch(factory => factory.contacts.loadContacts(1, 1));  
   }
 
-  ionViewDidEnter() {
+  viewProperty(index) {
+    this.store.dispatch(factory => factory.contacts.setActiveProperty(index));
+  }
+
+  clearActiveProperty() {
+    this.store.dispatch(factory => factory.contacts.clearActiveProperty());
+  }
+
+  ionViewDidLoad() {
     this.loadAccountContacts();
   }
 

@@ -20,6 +20,14 @@ export function reducer(state: State = initialState, action: ContactsActions.Any
             return { ...state, ...{ list: action.response, activeProperty: null } }
         }
 
+        case ContactsActions.SetActiveProperty.Type: {
+            return { ...state, ...{ activeProperty: state.list[action.propertyIndex] } }
+        }
+
+        case ContactsActions.ClearActiveProperty.Type: {
+            return { ...state, ...{ activeProperty: null } }
+        }
+
         default: {
             return state;
         }

@@ -5,6 +5,14 @@ export class ActionFactory {
     public loadContacts(accountId: number, userId: number): LoadContacts {
         return new LoadContacts(accountId, userId);
     }
+
+    public setActiveProperty(propertyIndex: number): SetActiveProperty {
+        return new SetActiveProperty(propertyIndex);
+    }
+
+    public clearActiveProperty(): ClearActiveProperty {
+        return new ClearActiveProperty();
+    }
 }
 
 export class InternalActionFactory {
@@ -19,10 +27,21 @@ export class LoadContacts implements Action {
     constructor(public readonly accountId, public readonly userId) { }
 }
 
+export class SetActiveProperty implements Action {
+    public static readonly Type = '[Property] Set Active Property';
+    public readonly type = SetActiveProperty.Type;
+    constructor(public readonly propertyIndex) { }
+}
+
+export class ClearActiveProperty implements Action {
+    public static readonly Type = '[Property] Clear Active Property';
+    public readonly type = ClearActiveProperty.Type;
+}
+
 export class LoadContactsSuccess implements Action {
     public static readonly Type = '[Contacts] Load Contacts Success';
     public readonly type = LoadContactsSuccess.Type;
     constructor(public readonly response) { }
 }
 
-export type Any = LoadContacts | LoadContactsSuccess;
+export type Any = LoadContacts | LoadContactsSuccess | SetActiveProperty | ClearActiveProperty;
