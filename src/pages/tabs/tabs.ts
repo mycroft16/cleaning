@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 
-import { ContactsPage } from '../contacts/contacts';
+import { PropertiesPage } from '../properties/properties';
 import { MorePage } from '../more/more';
 import { SchedulePage } from '../schedule/schedule';
 import { TodayPage } from '../today/today';
@@ -12,7 +12,7 @@ export class TabsPage {
 
   tab1Root = TodayPage;
   tab2Root = SchedulePage;
-  tab3Root = ContactsPage;
+  tab3Root = PropertiesPage;
   tab4Root = MorePage;
 
   constructor() {

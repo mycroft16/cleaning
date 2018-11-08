@@ -5,10 +5,10 @@ import { Observable } from 'rxjs'
 import { IProperty } from '../../shared/interfaces/property.interface'
 
 @Injectable()
-export class ContactsService {
+export class PropertiesService {
     constructor(private apiService: ApiService) { }
 
-    public loadContacts(accountId: number, userId: number): Observable<IProperty[]> {
+    public loadProperties(accountId: number, userId: number): Observable<IProperty[]> {
         return this.apiService.get(
             'Account',
             'AccountProperties',

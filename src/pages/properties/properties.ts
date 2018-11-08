@@ -7,33 +7,33 @@ import { IProperty } from '../../app/shared/interfaces/property.interface'
 import { PropertyPage } from './property/property'
 
 @Component({
-  selector: 'page-contacts',
-  templateUrl: 'contacts.html',
+  selector: 'page-properties',
+  templateUrl: 'properties.html',
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 
-export class ContactsPage {
+export class PropertiesPage {
 
-  public contacts: Observable<IProperty[]>;
+  public properties: Observable<IProperty[]>;
 
   constructor(private modalCtrl: ModalController, private navCtrl: NavController, private store: AppStore) {
-    this.contacts = this.store.select(state => state.contacts.list);
+    this.properties = this.store.select(state => state.properties.list);
   }
 
-  loadAccountContacts() {
-    this.store.dispatch(factory => factory.contacts.loadContacts(1, 1));  
+  loadAccountProperties() {
+    this.store.dispatch(factory => factory.properties.loadProperties(1, 1));  
   }
 
   viewProperty(index) {
-    this.store.dispatch(factory => factory.contacts.setActiveProperty(index));
+    this.store.dispatch(factory => factory.properties.setActiveProperty(index));
   }
 
   clearActiveProperty() {
-    this.store.dispatch(factory => factory.contacts.clearActiveProperty());
+    this.store.dispatch(factory => factory.properties.clearActiveProperty());
   }
 
-  ionViewDidLoad() {
-    this.loadAccountContacts();
+ionViewDidEnter() {
+    this.loadAccountProperties();
   }
 
 }

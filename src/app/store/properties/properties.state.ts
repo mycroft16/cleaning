@@ -1,4 +1,4 @@
-import * as ContactsActions from './contacts.actions';
+import * as PropertiesActions from './properties.actions';
 import { IProperty } from '../../shared/interfaces/property.interface'
 
 export interface State {
@@ -11,20 +11,20 @@ export const initialState: State = {
     activeProperty: null
 }
 
-export function reducer(state: State = initialState, action: ContactsActions.Any): State {
+export function reducer(state: State = initialState, action: PropertiesActions.Any): State {
     if (state === null) state = initialState;
 
     switch(action.type) {
         
-        case ContactsActions.LoadContactsSuccess.Type: {
+        case PropertiesActions.LoadPropertiesSuccess.Type: {
             return { ...state, ...{ list: action.response, activeProperty: null } }
         }
 
-        case ContactsActions.SetActiveProperty.Type: {
+        case PropertiesActions.SetActiveProperty.Type: {
             return { ...state, ...{ activeProperty: state.list[action.propertyIndex] } }
         }
 
-        case ContactsActions.ClearActiveProperty.Type: {
+        case PropertiesActions.ClearActiveProperty.Type: {
             return { ...state, ...{ activeProperty: null } }
         }
 

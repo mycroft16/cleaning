@@ -5,27 +5,27 @@ import { Injectable } from '@angular/core'
 import { Action, Store } from '@ngrx/store'
 import { Observable } from 'rxjs'
 
-import * as ContactsActions from './contacts/contacts.actions'
-import * as ContactsState from './contacts/contacts.state';
+import * as PropertiesActions from './properties/properties.actions'
+import * as PropertiesState from './properties/properties.state';
 
 import * as LoadingIndicatorActions from './loading-indicator/loading-indicator.actions'
 import * as LoadingIndicatorState from './loading-indicator/loading-indicator.state'
 
-export type ContactsState = ContactsState.State;
+export type PropertiesState = PropertiesState.State;
 export type LoadingIndicatorState = LoadingIndicatorState.State;
 
 export interface ActionFactory {
-    readonly contacts: ContactsActions.ActionFactory;
+    readonly properties: PropertiesActions.ActionFactory;
     readonly loadingIndicator: LoadingIndicatorActions.ActionFactory;
 }
 
 export interface InternalActionFactory {
-    readonly contacts: ContactsActions.InternalActionFactory;
+    readonly properties: PropertiesActions.InternalActionFactory;
     readonly loadingIndicator: LoadingIndicatorActions.InternalActionFactory;
 }
 
 export interface AppState {
-    readonly contacts: ContactsState;
+    readonly properties: PropertiesState;
     readonly loadingIndicatory: LoadingIndicatorState;
 }
 export interface AppReducers {
@@ -33,7 +33,7 @@ export interface AppReducers {
 }
 
 export const reducers: AppReducers = {
-    contacts: ContactsState.reducer,
+    properties: PropertiesState.reducer,
     loadingIndicator: LoadingIndicatorState.reducer
 }
 
@@ -89,12 +89,12 @@ export class AppStore {
       }
 
       private readonly actionFactory: ActionFactory = {
-          contacts: new ContactsActions.ActionFactory,
+          properties: new PropertiesActions.ActionFactory,
           loadingIndicator: new LoadingIndicatorActions.ActionFactory
       }
 
       private readonly internalActionFactory: InternalActionFactory = {
-          contacts: new ContactsActions.InternalActionFactory,
+          properties: new PropertiesActions.InternalActionFactory,
           loadingIndicator: new LoadingIndicatorActions.InternalActionFactory
       }
 }

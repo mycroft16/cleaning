@@ -2,8 +2,8 @@ import { Action } from '@ngrx/store'
 import { IProperty } from '../../shared/interfaces/property.interface'
 
 export class ActionFactory {
-    public loadContacts(accountId: number, userId: number): LoadContacts {
-        return new LoadContacts(accountId, userId);
+    public loadProperties(accountId: number, userId: number): LoadProperties {
+        return new LoadProperties(accountId, userId);
     }
 
     public setActiveProperty(propertyIndex: number): SetActiveProperty {
@@ -16,14 +16,14 @@ export class ActionFactory {
 }
 
 export class InternalActionFactory {
-    public loadContactsSuccess(response: IProperty[]): LoadContactsSuccess {
-        return new LoadContactsSuccess(response);
+    public loadPropertiesSuccess(response: IProperty[]): LoadPropertiesSuccess {
+        return new LoadPropertiesSuccess(response);
     }
 }
 
-export class LoadContacts implements Action {
-    public static readonly Type = '[Contacts] Load Contacts';
-    public readonly type = LoadContacts.Type;
+export class LoadProperties implements Action {
+    public static readonly Type = '[Property] Load Properties';
+    public readonly type = LoadProperties.Type;
     constructor(public readonly accountId, public readonly userId) { }
 }
 
@@ -38,10 +38,10 @@ export class ClearActiveProperty implements Action {
     public readonly type = ClearActiveProperty.Type;
 }
 
-export class LoadContactsSuccess implements Action {
-    public static readonly Type = '[Contacts] Load Contacts Success';
-    public readonly type = LoadContactsSuccess.Type;
+export class LoadPropertiesSuccess implements Action {
+    public static readonly Type = '[Property] Load Properties Success';
+    public readonly type = LoadPropertiesSuccess.Type;
     constructor(public readonly response) { }
 }
 
-export type Any = LoadContacts | LoadContactsSuccess | SetActiveProperty | ClearActiveProperty;
+export type Any = LoadProperties | LoadPropertiesSuccess | SetActiveProperty | ClearActiveProperty;

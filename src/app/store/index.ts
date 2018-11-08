@@ -6,9 +6,9 @@ import { AppState, AppStore } from './app.store'
 
 import { ApiService } from './api/api.service'
 
-import { ContactsEffects } from './contacts/contacts.effects'
-import { ContactsService } from './contacts/contacts.service'
-import * as ContactsState from './contacts/contacts.state'
+import { PropertiesEffects } from './properties/properties.effects'
+import { PropertiesService } from './properties/properties.service'
+import * as PropertiesState from './properties/properties.state'
 
 import * as LoadingIndicatorState from './loading-indicator/loading-indicator.state'
 
@@ -18,15 +18,15 @@ export const metaReducers: MetaReducer<AppState>[] = [
 
 export const PROVIDERS: any[] = [
     ApiService,
-    ContactsService,
+    PropertiesService,
     AppStore
 ];
 
 export const EFFECTS: ModuleWithProviders = EffectsModule.forRoot([
-    ContactsEffects
+    PropertiesEffects
 ]);
 
 export const STORES: any = {
-    contacts: ContactsState.reducer,
+    properties: PropertiesState.reducer,
     loadingIndicator: LoadingIndicatorState.reducer
 }

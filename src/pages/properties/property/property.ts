@@ -17,7 +17,7 @@ export class PropertyPage {
     }
 
     ionViewDidLoad() {
-        this.property = this.store.snapshot(factory => factory.contacts.activeProperty);
+        this.property = this.store.snapshot(factory => factory.properties.activeProperty);
     }
 
 }
