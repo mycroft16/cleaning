@@ -6,8 +6,19 @@
   </ion-navbar>
 </ion-header>
 
-<ion-content padding>
-  container for more pages as button items
+<ion-content>
+  <ion-list>
 
-  notifications may go here, but probably become main level nav.
+    <button ion-item (click)="openNotifications()">
+      <i class="fal fa-newspaper" item-end></i>
+      Notifications
+    </button>
+
+    <button ion-item (click)="logout()">
+      <i class="fal fa-sign-out-alt" item-end></i>
+      &nbsp;&nbsp;
+      Sign Out
+    </button>
+
+  </ion-list>
 </ion-content>
