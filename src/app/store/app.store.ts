@@ -5,26 +5,33 @@ import { Injectable } from '@angular/core'
 import { Action, Store } from '@ngrx/store'
 import { Observable } from 'rxjs'
 
+import * as NotificationsActions from './notifications/notifications.actions'
+import * as NotificationsState from './notifications/notifications.state'
+
 import * as PropertiesActions from './properties/properties.actions'
-import * as PropertiesState from './properties/properties.state';
+import * as PropertiesState from './properties/properties.state'
 
 import * as LoadingIndicatorActions from './loading-indicator/loading-indicator.actions'
 import * as LoadingIndicatorState from './loading-indicator/loading-indicator.state'
 
+export type NotificationsSatate = NotificationsState.State;
 export type PropertiesState = PropertiesState.State;
 export type LoadingIndicatorState = LoadingIndicatorState.State;
 
 export interface ActionFactory {
+    readonly notifications: NotificationsActions.ActionFactory;
     readonly properties: PropertiesActions.ActionFactory;
     readonly loadingIndicator: LoadingIndicatorActions.ActionFactory;
 }
 
 export interface InternalActionFactory {
+    readonly notifications: NotificationsActions.InternalActionFactory;
     readonly properties: PropertiesActions.InternalActionFactory;
     readonly loadingIndicator: LoadingIndicatorActions.InternalActionFactory;
 }
 
 export interface AppState {
+    readonly notifications: NotificationsSatate;
     readonly properties: PropertiesState;
     readonly loadingIndicatory: LoadingIndicatorState;
 }
@@ -33,6 +40,7 @@ export interface AppReducers {
 }
 
 export const reducers: AppReducers = {
+    notifications: NotificationsState.reducer,
     properties: PropertiesState.reducer,
     loadingIndicator: LoadingIndicatorState.reducer
 }
@@ -89,11 +97,13 @@ export class AppStore {
       }
 
       private readonly actionFactory: ActionFactory = {
+          notifications: new NotificationsActions.ActionFactory,
           properties: new PropertiesActions.ActionFactory,
           loadingIndicator: new LoadingIndicatorActions.ActionFactory
       }
 
       private readonly internalActionFactory: InternalActionFactory = {
+          notifications: new NotificationsActions.InternalActionFactory,
           properties: new PropertiesActions.InternalActionFactory,
           loadingIndicator: new LoadingIndicatorActions.InternalActionFactory
       }

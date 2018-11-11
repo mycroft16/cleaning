@@ -10,8 +10,8 @@ export interface IProperty {
     city: string;
     state: string;
     zip: number;
-    primaryContact: number;
-    secondaryContact: number;
+    primaryContact: IClient;
+    secondaryContact: IClient;
     people: IClient[];
     pets: IPet[];
 }

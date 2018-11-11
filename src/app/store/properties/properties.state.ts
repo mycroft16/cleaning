@@ -1,4 +1,4 @@
-import * as PropertiesActions from './properties.actions';
+import * as PropertiesActions from './properties.actions'
 import { IProperty } from '../../shared/interfaces/property.interface'
 
 export interface State {
