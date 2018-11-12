@@ -9,6 +9,11 @@
 <ion-content>
   <ion-list>
 
+    <button ion-item (click)="updateAvatar()">
+      <i class="fal fa-camera-retro" item-end></i>
+      Update Avatar
+    </button>
+
     <button ion-item (click)="openNotifications()">
       <i class="fal fa-newspaper" item-end></i>
       Notifications
@@ -16,7 +21,6 @@
 
     <button ion-item (click)="logout()">
       <i class="fal fa-sign-out-alt" item-end></i>
-      &nbsp;&nbsp;
       Sign Out
     </button>
 

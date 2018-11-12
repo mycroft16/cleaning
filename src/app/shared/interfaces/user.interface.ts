@@ -20,3 +20,7 @@ export interface IUser {
     addedBy: number;
     status: number;
 }
+
+export interface IAuthToken {
+    token: string;
+}

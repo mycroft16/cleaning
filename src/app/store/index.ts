@@ -14,6 +14,10 @@ import { PropertiesEffects } from './properties/properties.effects'
 import { PropertiesService } from './properties/properties.service'
 import * as PropertiesState from './properties/properties.state'
 
+import { UserEffects } from './user/user.effects'
+import { UserService } from './user/user.service'
+import * as UserState from './user/user.state'
+
 import * as LoadingIndicatorState from './loading-indicator/loading-indicator.state'
 
 export const metaReducers: MetaReducer<AppState>[] = [
@@ -24,16 +28,19 @@ export const PROVIDERS: any[] = [
     ApiService,
     NotificationsService,
     PropertiesService,
+    UserService,
     AppStore
 ];
 
 export const EFFECTS: ModuleWithProviders = EffectsModule.forRoot([
     NotificationsEffects,
-    PropertiesEffects
+    PropertiesEffects,
+    UserEffects
 ]);
 
 export const STORES: any = {
     notifications: NotificationsState.reducer,
     properties: PropertiesState.reducer,
+    user: UserState.reducer,
     loadingIndicator: LoadingIndicatorState.reducer
 }

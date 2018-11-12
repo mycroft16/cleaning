@@ -14,6 +14,10 @@ export class MorePage {
     
   }
 
+  updateAvatar() {
+    console.log('will open avatar update page');
+  }
+
   openNotifications() {
     this.navCtrl.push(NotificationsPage);
   }
