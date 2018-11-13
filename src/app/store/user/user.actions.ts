@@ -1,5 +1,5 @@
 import { Action} from '@ngrx/store'
-import { IUser, IAuthToken } from '../../shared/interfaces/user.interface'
+import { IUser } from '../../shared/interfaces/user.interface'
 
 export class ActionFactory {
     public getAuthToken(username: string, password: string): GetAuthToken {
@@ -12,7 +12,7 @@ export class ActionFactory {
 }
 
 export class InternalActionFactory {
-    public getAuthTokenSuccess(response: IAuthToken): GetAuthTokenSuccess {
+    public getAuthTokenSuccess(response: string): GetAuthTokenSuccess {
         return new GetAuthTokenSuccess(response);
     }
 

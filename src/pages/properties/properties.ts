@@ -32,7 +32,7 @@ export class PropertiesPage {
     this.store.dispatch(factory => factory.properties.clearActiveProperty());
   }
 
-ionViewDidEnter() {
+  ionViewDidEnter() {
     this.loadAccountProperties();
   }
 

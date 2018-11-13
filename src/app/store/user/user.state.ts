@@ -1,13 +1,15 @@
 import * as UserActions from './user.actions'
-import { IUser, IAuthToken } from '../../shared/interfaces/user.interface'
+import { IUser } from '../../shared/interfaces/user.interface'
 
 export interface State {
-    authToken: IAuthToken;
+    authToken: string;
+    expiration: number;
     user: IUser;
 }
 
 export const initialState: State = {
     authToken: null,
+    expiration: null,
     user: null
 }
 
@@ -17,7 +19,7 @@ export function reducer(state: State = initialState, action: UserActions.Any): S
     switch(action.type) {
 
         case UserActions.GetAuthTokenSuccess.Type: {
-            return { ...state, ...{ authToken: action.response, user: null } }
+            return { ...state, ...{ authToken: action.response.authToken, expiration: action.response.expiration, user: null } }
         }
 
         case UserActions.LoadUserSuccess.Type: {

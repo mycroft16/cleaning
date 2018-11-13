@@ -67,34 +67,34 @@ export class ApiService {
 
     private headers(headerType: string = 'json'): HttpHeaders {
         let token: string = '';
-    token = localStorage.getItem('auth_token');
-    let headers = new HttpHeaders();
-    headers = headers.set('Accept', 'application/json');
-
-    if (!!token) {
-      headers = headers.set('Authorization', token);
-    }
-
-    switch (headerType) {
-      case 'json':
-        headers = headers.set('Content-Type', 'application/json');
+        token = this.store.snapshot(state => state.user.authToken);
+        let headers = new HttpHeaders();
         headers = headers.set('Accept', 'application/json');
-        break;
-      case 'download':
-        headers = headers.set('Accept', 'application/octet-stream');
-        break;
-      case 'form-urlencoded':
-        headers = headers.set('Accept', 'application/json');
-        headers = headers.set('Content-Type', 'application/x-www-form-urlencoded');
-        break;
-      case 'text':
-        headers = headers.set('Content-Type', 'text/plain');
-        break;
-      default:
-        headers = headers.set('Accept', 'application/json');
-        break;
-    }
 
-    return headers;
+        if (!!token) {
+            headers = headers.set('Authorization', token);
+        }
+
+        switch (headerType) {
+        case 'json':
+            headers = headers.set('Content-Type', 'application/json');
+            headers = headers.set('Accept', 'application/json');
+            break;
+        case 'download':
+            headers = headers.set('Accept', 'application/octet-stream');
+            break;
+        case 'form-urlencoded':
+            headers = headers.set('Accept', 'application/json');
+            headers = headers.set('Content-Type', 'application/x-www-form-urlencoded');
+            break;
+        case 'text':
+            headers = headers.set('Content-Type', 'text/plain');
+            break;
+        default:
+            headers = headers.set('Accept', 'application/json');
+            break;
+        }
+
+        return headers;
     }
 }

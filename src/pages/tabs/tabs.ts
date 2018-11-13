@@ -10,6 +10,8 @@ import { TodayPage } from '../today/today';
 })
 export class TabsPage {
 
+  notificationCount: number = 5;
+
   tab1Root = TodayPage;
   tab2Root = SchedulePage;
   tab3Root = PropertiesPage;
