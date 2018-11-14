@@ -9,21 +9,23 @@
     </ion-row>
     <br />
     <br />
-    <ion-list>
-      <ion-item>
-        <ion-label floating>Username</ion-label>
-        <ion-input type="text" name="cl_username" autocomplete="nope"></ion-input>
-      </ion-item>
-      <ion-item>
-        <ion-label floating>Password</ion-label>
-        <ion-input type="password" name="cl_password" autocomplete="nope"></ion-input>
-      </ion-item>
-    </ion-list>
-    <button ion-button full icon-start color="primary" (click)="getAuth()">
-      <i class="fal fa-sign-in-alt"></i>
-      &nbsp;&nbsp;
-      Log In
-    </button>
+    <form [formGroup]="loginForm" (ngSubmit)="getAuth()">
+      <ion-list>
+        <ion-item>
+          <ion-label floating>Username</ion-label>
+          <ion-input type="text" formControlName="clUsername" autocomplete="nope"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label floating>Password</ion-label>
+          <ion-input type="password" formControlName="clPassword" autocomplete="nope"></ion-input>
+        </ion-item>
+      </ion-list>
+      <button ion-button full icon-start color="primary" type="submit" [disabled]="!loginForm.valid">
+        <i class="fal fa-sign-in-alt"></i>
+        &nbsp;&nbsp;
+        Log In
+      </button>
+    </form>
     <br />
     <ion-row>
       <ion-col text-center>
