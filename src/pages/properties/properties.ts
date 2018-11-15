@@ -1,10 +1,10 @@
 import { Component, ChangeDetectionStrategy } from '@angular/core'
-import { ModalController, NavController } from 'ionic-angular'
+// import { NavController } from 'ionic-angular'
 import { Observable } from 'rxjs'
 import { AppStore } from '../../app/store/app.store'
 import { IProperty } from '../../app/shared/interfaces/property.interface'
 
-import { PropertyPage } from './property/property'
+// import { PropertyPage } from './property/property'
 
 @Component({
   selector: 'page-properties',
@@ -16,7 +16,7 @@ export class PropertiesPage {
 
   public properties: Observable<IProperty[]>;
 
-  constructor(private modalCtrl: ModalController, private navCtrl: NavController, private store: AppStore) {
+  constructor(/*private navCtrl: NavController, */private store: AppStore) {
     this.properties = this.store.select(state => state.properties.list);
   }
 

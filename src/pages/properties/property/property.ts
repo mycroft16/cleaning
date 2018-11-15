@@ -12,7 +12,7 @@ import { IProperty } from '../../../app/shared/interfaces/property.interface'
 export class PropertyPage {
     public property: IProperty;
 
-    constructor(private navCtrl: NavController, private store: AppStore, private viewCtrl: ViewController) {
+    constructor(/*private navCtrl: NavController, */private store: AppStore, private viewCtrl: ViewController) {
 
     }
 
