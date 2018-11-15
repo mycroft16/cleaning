@@ -9,6 +9,10 @@ export class ActionFactory {
     public loadUser(): LoadUser {
         return new LoadUser();
     }
+
+    public updateUser(user: IUser): UpdateUser {
+        return new UpdateUser(user);
+    }
 }
 
 export class InternalActionFactory {
@@ -18,6 +22,10 @@ export class InternalActionFactory {
 
     public loadUserSuccess(response: IUser): LoadUserSuccess {
         return new LoadUserSuccess(response);
+    }
+
+    public updateUserSuccess(response: IUser): UpdateUserSuccess {
+        return new UpdateUserSuccess(response);
     }
 }
 
@@ -32,6 +40,12 @@ export class LoadUser implements Action {
     public readonly type = LoadUser.Type;
 }
 
+export class UpdateUser implements Action {
+    public static readonly Type = '[User] Update User';
+    public readonly type = UpdateUser.Type;
+    constructor(public readonly user) { }
+}
+
 export class GetAuthTokenSuccess implements Action {
     public static readonly Type = '[Login] Get Auth Token Success';
     public readonly type = GetAuthTokenSuccess.Type;
@@ -44,4 +58,10 @@ export class LoadUserSuccess implements Action {
     constructor(public readonly response) { }
 }
 
-export type Any = GetAuthToken | LoadUser | GetAuthTokenSuccess | LoadUserSuccess;
+export class UpdateUserSuccess implements Action {
+    public static readonly Type = '[User] Update User Success';
+    public readonly type = UpdateUserSuccess.Type;
+    constructor(public readonly response) { }
+}
+
+export type Any = GetAuthToken | LoadUser | UpdateUser | GetAuthTokenSuccess | LoadUserSuccess | UpdateUserSuccess;

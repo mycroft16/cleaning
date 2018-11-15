@@ -26,6 +26,10 @@ export function reducer(state: State = initialState, action: UserActions.Any): S
             return { ...state, ...{ user: action.response } }
         }
 
+        case UserActions.UpdateUserSuccess.Type: {
+            return { ...state, user: action.response }
+        }
+
         default: {
             return state;
         }

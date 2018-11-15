@@ -1,8 +1,9 @@
-import { Component } from '@angular/core';
-import { App, NavController } from 'ionic-angular';
+import { Component } from '@angular/core'
+import { App, NavController } from 'ionic-angular'
 
-import { LoginPage } from '../login/login';
-import { NotificationsPage } from '../notifications/notifications';
+import { LoginPage } from '../login/login'
+import { NotificationsPage } from '../notifications/notifications'
+import { ProfilePage } from '../profile/profile'
 
 @Component({
   selector: 'page-more',
@@ -16,6 +17,10 @@ export class MorePage {
 
   updateAvatar() {
     console.log('will open avatar update page');
+  }
+
+  updateProfile() {
+    this.navCtrl.push(ProfilePage);
   }
 
   openNotifications() {

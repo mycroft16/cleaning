@@ -1,0 +1,75 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      Update Profile
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <form [formGroup]="profileForm" (ngSubmit)="updateProfile()">
+    <ion-list>
+      
+      <ion-item>
+        <ion-label floating>First name</ion-label>
+        <ion-input type="text" formControlName="firstName"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label floating>Last Name</ion-label>
+        <ion-input type="text" formControlName="lastName"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label floating>Street Address</ion-label>
+        <ion-input type="text" formControlName="address1"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label floating>Additional Address</ion-label>
+        <ion-input type="text" formControlName="address2"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label floating>City</ion-label>
+        <ion-input type="text" formControlName="city"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label floating>State</ion-label>
+        <ion-input type="text" formControlName="state"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label floating>Postal Code</ion-label>
+        <ion-input type="text" formControlName="zip"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label floating>Mobile Phone</ion-label>
+        <ion-input type="text" formControlName="phoneMobile"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label floating>Home Phone</ion-label>
+        <ion-input type="text" formControlName="phoneHome"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label floating>Other Phone</ion-label>
+        <ion-input type="text" formControlName="phoneOther"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label floating>Email Address</ion-label>
+        <ion-input type="text" formControlName="emailAddress"></ion-input>
+      </ion-item>
+
+    </ion-list>
+    <button ion-button full icon-start color="primary" type="submit" [disabled]="!profileForm.valid">
+      <i class="fas fa-check-circle"></i>
+      &nbsp;&nbsp;
+      Save Profile
+    </button>
+  </form>
+</ion-content>

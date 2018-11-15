@@ -25,6 +25,13 @@ export class UserEffects {
                 .map(response => this.store.create(factory => factory.user.loadUserSuccess(response)))
         )
 
+    @Effect()
+    public updateUser: Observable<Action> = this.actions.ofType(UserActions.UpdateUser.Type)
+        .switchMap((action: UserActions.UpdateUser) =>
+            this.service.updateUser(action.user)
+                .map(response => this.store.create(factory => factory.user.updateUserSuccess(response)))
+        )
+
     constructor(
         private actions: Actions,
         private store: AppStore,
