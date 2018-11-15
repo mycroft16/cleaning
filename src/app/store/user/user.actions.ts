@@ -13,6 +13,10 @@ export class ActionFactory {
     public updateUser(user: IUser): UpdateUser {
         return new UpdateUser(user);
     }
+
+    public resetUser(): ResetUser {
+        return new ResetUser();
+    }
 }
 
 export class InternalActionFactory {
@@ -46,6 +50,11 @@ export class UpdateUser implements Action {
     constructor(public readonly user) { }
 }
 
+export class ResetUser implements Action {
+    public static readonly Type = '[User] Reset User';
+    public readonly type = ResetUser.Type;
+}
+
 export class GetAuthTokenSuccess implements Action {
     public static readonly Type = '[Login] Get Auth Token Success';
     public readonly type = GetAuthTokenSuccess.Type;
@@ -64,4 +73,4 @@ export class UpdateUserSuccess implements Action {
     constructor(public readonly response) { }
 }
 
-export type Any = GetAuthToken | LoadUser | UpdateUser | GetAuthTokenSuccess | LoadUserSuccess | UpdateUserSuccess;
+export type Any = GetAuthToken | LoadUser | UpdateUser | ResetUser | GetAuthTokenSuccess | LoadUserSuccess | UpdateUserSuccess;

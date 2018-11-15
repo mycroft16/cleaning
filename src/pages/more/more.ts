@@ -1,5 +1,6 @@
 import { Component } from '@angular/core'
 import { App, NavController } from 'ionic-angular'
+import { AppStore } from '../../app/store/app.store'
 
 import { LoginPage } from '../login/login'
 import { NotificationsPage } from '../notifications/notifications'
@@ -11,7 +12,7 @@ import { ProfilePage } from '../profile/profile'
 })
 export class MorePage {
 
-  constructor(private app: App, public navCtrl: NavController) {
+  constructor(private app: App, private store: AppStore, public navCtrl: NavController) {
     
   }
 
@@ -28,6 +29,7 @@ export class MorePage {
   }
 
   logout() {
+    this.store.dispatch(factory => factory.user.resetUser());
     this.app.getRootNav().setRoot(LoginPage);
   }
 
