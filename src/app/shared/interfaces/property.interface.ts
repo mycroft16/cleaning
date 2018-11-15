@@ -4,6 +4,7 @@ import { IPet } from './pet.interface'
 export interface IProperty {
     id: number;
     account: number;
+    user: number;
     propertyName: string;
     address1: string;
     address2: string;

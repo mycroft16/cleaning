@@ -21,7 +21,7 @@ export class PropertiesPage {
   }
 
   loadAccountProperties() {
-    this.store.dispatch(factory => factory.properties.loadProperties(1, 1));  
+    this.store.dispatch(factory => factory.properties.loadProperties());  
   }
 
   viewProperty(index) {

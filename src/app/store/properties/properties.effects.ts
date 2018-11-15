@@ -14,7 +14,7 @@ export class PropertiesEffects {
     @Effect()
     public loadProperties: Observable<Action> = this.actions.ofType(PropertiesActions.LoadProperties.Type)
         .switchMap((action: PropertiesActions.LoadProperties) =>
-            this.service.loadProperties(action.accountId, action.userId)
+            this.service.loadProperties()
                 .map(response => this.store.create(factory => factory.properties.loadPropertiesSuccess(response)))
         )
 

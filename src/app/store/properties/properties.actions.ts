@@ -2,8 +2,8 @@ import { Action } from '@ngrx/store'
 import { IProperty } from '../../shared/interfaces/property.interface'
 
 export class ActionFactory {
-    public loadProperties(accountId: number, userId: number): LoadProperties {
-        return new LoadProperties(accountId, userId);
+    public loadProperties(): LoadProperties {
+        return new LoadProperties();
     }
 
     public setActiveProperty(propertyIndex: number): SetActiveProperty {
@@ -24,7 +24,6 @@ export class InternalActionFactory {
 export class LoadProperties implements Action {
     public static readonly Type = '[Property] Load Properties';
     public readonly type = LoadProperties.Type;
-    constructor(public readonly accountId, public readonly userId) { }
 }
 
 export class SetActiveProperty implements Action {

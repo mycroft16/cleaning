@@ -8,12 +8,12 @@ import { IProperty } from '../../shared/interfaces/property.interface'
 export class PropertiesService {
     constructor(private apiService: ApiService) { }
 
-    public loadProperties(accountId: number, userId: number): Observable<IProperty[]> {
+    public loadProperties(): Observable<IProperty[]> {
         return this.apiService.get(
             'Account',
             'AccountProperties',
             {
-                params: { accountId: accountId, userId: userId },
+                params: { },
                 loadingIndicator: true
             }
         );
