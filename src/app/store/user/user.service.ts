@@ -25,7 +25,7 @@ export class UserService {
             'User',
             'LoadUser',
             {
-                params: { authToken: this.store.snapshot(state => state.user.authToken) },
+                params: { },
                 loadingIndicator: true
             }
         );

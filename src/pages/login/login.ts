@@ -15,11 +15,11 @@ export class LoginPage {
   constructor(public navCtrl: NavController, public navParams: NavParams, private store: AppStore, private fb: FormBuilder) { }
 
   loginForm = this.fb.group({
-    clUsername: ['', [
+    clUsername: ['acm1979@gmail.com', [
       Validators.required,
       Validators.email
     ]],
-    clPassword: ['', [
+    clPassword: ['admina000509458', [
       Validators.required
     ]]
   });
@@ -30,12 +30,22 @@ export class LoginPage {
   }
 
   getUser() {
-    this.store.dispatch(factory => factory.user.loadUser());
-    this.navCtrl.setRoot(TabsPage);
+    this.store.select(state => state.user.authToken).subscribe((authToken) => {
+      if (authToken !== null) {
+        this.store.dispatch(factory => factory.user.loadUser());
+        this.logIn();
+      }
+    });
   }
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad LoginPage');
+  logIn() {
+    this.store.select(state => state.user.user).subscribe((user) => {
+      if (user !== null) {
+        this.navCtrl.setRoot(TabsPage);
+      }
+    });
   }
+
+  ionViewDidLoad() {}
 
 }

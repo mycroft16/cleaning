@@ -18,6 +18,7 @@ export class UserEffects {
                 .map(response => this.store.create(factory => factory.user.getAuthTokenSuccess(response)))
         )
 
+    @Effect()
     public loadUser: Observable<Action> = this.actions.ofType(UserActions.LoadUser.Type)
         .switchMap((action: UserActions.LoadUser) =>
             this.service.loadUser()
