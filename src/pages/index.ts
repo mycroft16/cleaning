@@ -6,6 +6,7 @@ import { PropertiesPage } from './properties/properties'
 import { SchedulePage } from './schedule/schedule'
 import { TabsPage } from './tabs/tabs'
 import { TodayPage } from './today/today'
+import { UpdateAvatarPage } from './more/update-avatar/update-avatar'
 
 export const PAGES = [
     LoginPage,
@@ -15,5 +16,6 @@ export const PAGES = [
     PropertiesPage,
     SchedulePage,
     TabsPage,
-    TodayPage
+    TodayPage,
+    UpdateAvatarPage
 ];

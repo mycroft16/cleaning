@@ -5,6 +5,7 @@ import { AppStore } from '../../app/store/app.store'
 import { LoginPage } from '../login/login'
 import { NotificationsPage } from './notifications/notifications'
 import { ProfilePage } from './profile/profile'
+import { UpdateAvatarPage } from './update-avatar/update-avatar'
 
 @Component({
   selector: 'page-more',
@@ -17,7 +18,7 @@ export class MorePage {
   }
 
   updateAvatar() {
-    console.log('will open avatar update page');
+    this.navCtrl.push(UpdateAvatarPage);
   }
 
   updateProfile() {
