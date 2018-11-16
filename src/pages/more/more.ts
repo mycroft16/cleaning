@@ -3,8 +3,8 @@ import { App, NavController } from 'ionic-angular'
 import { AppStore } from '../../app/store/app.store'
 
 import { LoginPage } from '../login/login'
-import { NotificationsPage } from '../notifications/notifications'
-import { ProfilePage } from '../profile/profile'
+import { NotificationsPage } from './notifications/notifications'
+import { ProfilePage } from './profile/profile'
 
 @Component({
   selector: 'page-more',

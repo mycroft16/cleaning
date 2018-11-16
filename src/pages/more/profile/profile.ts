@@ -1,8 +1,8 @@
 import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { FormBuilder, Validators, FormGroup } from '@angular/forms'
 import { NavController } from 'ionic-angular';
-import { AppStore } from '../../app/store/app.store'
-import { IUser } from '../../app/shared/interfaces/user.interface';
+import { AppStore } from '../../../app/store/app.store'
+import { IUser } from '../../../app/shared/interfaces/user.interface';
 
 
 @Component({
