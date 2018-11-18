@@ -1,3 +1,16 @@
 page-update-avatar {
-
+    .avatarContainer {
+        background-color: #fdfdfd;
+        border-radius: 50%;
+        box-shadow: 0 0 30px 0 rgba(0, 0, 0, 0.4);
+        height: 200px;
+        margin: 60px auto 0;
+        text-align: center;
+        width: 200px;
+        
+    }
+        .fa-camera-retro {
+            font-size: 90px;
+            line-height: 200px;
+        }
 }
