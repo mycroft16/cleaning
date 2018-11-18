@@ -1,4 +1,4 @@
-import { Component } from '@angular/core'
+import { Component, ChangeDetectionStrategy } from '@angular/core'
 import { App, NavController } from 'ionic-angular'
 import { AppStore } from '../../app/store/app.store'
 
@@ -9,7 +9,8 @@ import { UpdateAvatarPage } from './update-avatar/update-avatar'
 
 @Component({
   selector: 'page-more',
-  templateUrl: 'more.html'
+  templateUrl: 'more.html',
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class MorePage {
 

@@ -1,9 +1,10 @@
-import { Component } from '@angular/core';
+import { Component, ChangeDetectionStrategy } from '@angular/core';
 import { NavController } from 'ionic-angular';
 
 @Component({
   selector: 'page-schedule',
-  templateUrl: 'schedule.html'
+  templateUrl: 'schedule.html',
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class SchedulePage {
 

@@ -1,9 +1,10 @@
-import { Component } from '@angular/core';
+import { Component, ChangeDetectionStrategy } from '@angular/core';
 import { NavController } from 'ionic-angular';
 
 @Component({
   selector: 'page-update-avatar',
-  templateUrl: 'update-avatar.html'
+  templateUrl: 'update-avatar.html',
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class UpdateAvatarPage {
 
