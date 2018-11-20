@@ -27,6 +27,7 @@ export class LoginPage {
   getAuth() {
     this.store.dispatch(factory => factory.user.getAuthToken(this.loginForm.value.clUsername, this.loginForm.value.clPassword));
     this.getUser();
+    // this.logIn();
   }
 
   getUser() {

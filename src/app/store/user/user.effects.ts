@@ -1,4 +1,5 @@
 import 'rxjs/add/operator/switchMap'
+// import 'rxjs/add/operator/mergeMap'
 import { Injectable } from '@angular/core'
 import { Observable } from 'rxjs'
 import { Action } from '@ngrx/store'
@@ -17,6 +18,15 @@ export class UserEffects {
             this.service.getAuthToken(action.username, action.password)
                 .map(response => this.store.create(factory => factory.user.getAuthTokenSuccess(response)))
         )
+    // @Effect()
+    // public getAuthToken: Observable<void | Action> = this.actions.ofType(UserActions.GetAuthToken.Type)
+    //     .switchMap((action: UserActions.GetAuthToken) =>
+    //         this.service.getAuthToken(action.username, action.password)
+    //             .mergeMap((response) => [
+    //                 this.store.create(factory => factory.user.getAuthTokenSuccess(response)),
+    //                 this.store.dispatch(factory => factory.user.loadUser())
+    //             ])
+    //     )
 
     @Effect()
     public loadUser: Observable<Action> = this.actions.ofType(UserActions.LoadUser.Type)
