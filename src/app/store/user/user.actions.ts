@@ -6,10 +6,6 @@ export class ActionFactory {
         return new GetAuthToken(username, password);
     }
 
-    public loadUser(): LoadUser {
-        return new LoadUser();
-    }
-
     public updateUser(user: IUser): UpdateUser {
         return new UpdateUser(user);
     }
@@ -22,6 +18,10 @@ export class ActionFactory {
 export class InternalActionFactory {
     public getAuthTokenSuccess(response: string): GetAuthTokenSuccess {
         return new GetAuthTokenSuccess(response);
+    }
+
+    public loadUser(): LoadUser {
+        return new LoadUser();
     }
 
     public loadUserSuccess(response: IUser): LoadUserSuccess {
