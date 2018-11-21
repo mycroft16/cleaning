@@ -1,6 +1,6 @@
-import 'rxjs/add/operator/switchMap'
 import { Injectable } from '@angular/core'
 import { Observable } from 'rxjs'
+import { switchMap, map } from 'rxjs/operators'
 import { Action } from '@ngrx/store'
 import { Effect, Actions } from '@ngrx/effects'
 
@@ -13,10 +13,12 @@ export class PropertiesEffects {
 
     @Effect()
     public loadProperties: Observable<Action> = this.actions.ofType(PropertiesActions.LoadProperties.Type)
-        .switchMap((action: PropertiesActions.LoadProperties) =>
-            this.service.loadProperties()
-                .map(response => this.store.create(factory => factory.properties.loadPropertiesSuccess(response)))
-        )
+        .pipe(
+            switchMap((action: PropertiesActions.LoadProperties) =>
+                this.service.loadProperties()
+                    .pipe(map(response => this.store.create(factory => factory.properties.loadPropertiesSuccess(response))))
+            )
+        );
 
     constructor(
         private actions: Actions,
