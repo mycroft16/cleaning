@@ -1,1 +1,6 @@
-Property Info
+<h3>Address</h3>
+{{ property.address1 }}<br />
+<ng-container *ngIf="property.address2">{{ property.address2 }}</ng-container>
+{{ property.city }}, {{ property.state }} {{ property.zip }}
+
+<div style="width: 100%; height: 150px; border: 1px solid #dddddd; ">Map?</div>

@@ -1,1 +1,17 @@
-Property People
+<h3>Family</h3>
+<ion-list>
+    <ion-item-sliding *ngFor="let person of property.people">
+        <ion-item>
+            {{ person.firstName }} {{ person.lastName }}
+        </ion-item>
+    </ion-item-sliding>
+</ion-list>
+
+<h3>Pets</h3>
+<ion-list>
+    <ion-item-sliding *ngFor="let pet of property.pets">
+        <ion-item>
+            {{ pet.petName }} ({{ pet.petType }})
+        </ion-item>
+    </ion-item-sliding>
+</ion-list>
