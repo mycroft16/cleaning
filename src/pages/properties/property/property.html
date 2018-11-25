@@ -1,0 +1,28 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      {{ property.propertyName }}
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <ion-segment [(ngModel)]="propertyTab">
+    <ion-segment-button value="property">
+      <i class="far fa-home"></i>
+      &nbsp;Property
+    </ion-segment-button>
+    <ion-segment-button value="people">
+      <i class="far fa-users"></i>
+      &nbsp;People
+    </ion-segment-button>
+    <ion-segment-button value="notes">
+      <i class="far fa-sticky-note"></i>
+      &nbsp;Notes
+    </ion-segment-button>
+  </ion-segment>
+
+  <property-info-component    *ngIf="propertyTab === 'property'"  [property]="property"></property-info-component>
+  <property-people-component  *ngIf="propertyTab === 'people'"    [property]="property"></property-people-component>
+  <property-notes-component   *ngIf="propertyTab === 'notes'"     [property]="property"></property-notes-component>
+</ion-content>

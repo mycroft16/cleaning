@@ -4,6 +4,8 @@ import { Observable } from 'rxjs'
 import { AppStore } from '../../app/store/app.store'
 import { IProperty } from '../../app/shared/interfaces/property.interface'
 
+import { PropertyPage } from './property/property'
+
 @Component({
   selector: 'page-properties',
   templateUrl: 'properties.html',
@@ -24,6 +26,7 @@ export class PropertiesPage {
 
   viewProperty(index) {
     this.store.dispatch(factory => factory.properties.setActiveProperty(index));
+    this.navCtrl.push(PropertyPage);
   }
 
   clearActiveProperty() {
