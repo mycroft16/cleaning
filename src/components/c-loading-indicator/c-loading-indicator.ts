@@ -1,6 +1,6 @@
 import { Component } from '@angular/core'
 import { LoadingController } from 'ionic-angular'
-// import { AppStore } from '../../app/store/app.store'
+import { AppStore } from '../../app/store/app.store'
 
 @Component({
     selector: 'c-loading-indicator',
@@ -13,10 +13,10 @@ export class CLoadingIndicator {
     
     constructor(
         public loadingController: LoadingController,
-        /* public store: AppStore*/ ) {
-            // store.select(state => state.loadingIndicator).subscribe(state => {
-            //     (state.show) ? this.showLoading(): this.hideLoading();
-            // });
+        public store: AppStore ) {
+            store.select(state => state.loadingIndicator).subscribe(state => {
+                (state.show) ? this.showLoading(): this.hideLoading();
+            });
     }
 
     public showLoading() {
@@ -26,7 +26,7 @@ export class CLoadingIndicator {
                 content: `
                 <div class="loading">
                     <div class="loadingCircle">
-                        <!-- <img src="assets/images/loading.svg" /> -->
+                        <img src="assets/icon/eclipse.svg" />
                     </div>
                 </div>
                 `

@@ -40,7 +40,7 @@ export interface AppState {
     readonly notifications: NotificationsSatate;
     readonly properties: PropertiesState;
     readonly user: UserState;
-    readonly loadingIndicatory: LoadingIndicatorState;
+    readonly loadingIndicator: LoadingIndicatorState;
 }
 export interface AppReducers {
     readonly [reducerName: string]: Function;
