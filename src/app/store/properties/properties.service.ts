@@ -10,8 +10,7 @@ export class PropertiesService {
 
     public loadProperties(): Observable<IProperty[]> {
         return this.apiService.get(
-            'Account',
-            'AccountProperties',
+            'Account/AccountProperties',
             {
                 params: { },
                 loadingIndicator: true

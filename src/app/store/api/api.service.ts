@@ -11,25 +11,25 @@ export class ApiService {
 
     }
 
-    public get(controller: string, endpoint: string, options: ApiOptions = {}): Observable<any> {
-        return this.call('GET', controller, endpoint, options);
+    public get(controller: string, options: ApiOptions = {}): Observable<any> {
+        return this.call('GET', controller, options);
     }
 
-    public post(controller: string, endpoint: string, options: ApiOptions = {}): Observable<any> {
-        return this.call('POST', controller, endpoint, options);
+    public post(controller: string, options: ApiOptions = {}): Observable<any> {
+        return this.call('POST', controller, options);
     }
 
-    public put(controller: string, endpoint: string, options: ApiOptions = {}): Observable<any> {
-        return this.call('PUT', controller, endpoint, options);
+    public put(controller: string, options: ApiOptions = {}): Observable<any> {
+        return this.call('PUT', controller, options);
     }
 
-    public delete(controller: string, endpoint: string, options: ApiOptions = {}): Observable<any> {
-        return this.call('DELETE', controller, endpoint, options);
+    public delete(controller: string, options: ApiOptions = {}): Observable<any> {
+        return this.call('DELETE', controller, options);
     }
 
     //// END PUBLIC INTERFACE
 
-    private call(method: 'GET' | 'POST' | 'PUT' | 'DELETE', controller: string, endpoint: string, options: ApiOptions): Observable<any> {
+    private call(method: 'GET' | 'POST' | 'PUT' | 'DELETE', controller: string, options: ApiOptions): Observable<any> {
         const selectedOptions: ApiOptions = this.combineDefaultOptionsWith(options);
         const requestOptions = {
             params: selectedOptions.params,
@@ -38,7 +38,7 @@ export class ApiService {
         };
         this.showLoadingIndicatorDependingOn(selectedOptions);
 
-        return this.http.request(method, this.urlFor(controller, endpoint), requestOptions)
+        return this.http.request(method, this.urlFor(controller), requestOptions)
             .do(
                 () => this.hideLoadingIndicatorDependingOn(selectedOptions),
                 () => this.showLoadingIndicatorDependingOn(selectedOptions)
@@ -61,8 +61,8 @@ export class ApiService {
         }
     }
 
-    private urlFor(controller: string, endpoint: string) {
-        return `http://cleaning.wherearethelights.com/api/${controller}/${endpoint}.php`;
+    private urlFor(controller: string) {
+        return `http://cleaning.wherearethelights.com/api/${controller}.php`;
     }
 
     private headers(headerType: string = 'json'): HttpHeaders {

@@ -10,8 +10,7 @@ export class NotificationsService {
 
     public loadNotifications(accountId: number, userId: number): Observable<INotification[]> {
         return this.apiService.get(
-            'Notifications',
-            'UserNotifications',
+            'Notifications/UserNotifications',
             {
                 params: { accountId: accountId, userId: userId },
                 loadingIndicator: false

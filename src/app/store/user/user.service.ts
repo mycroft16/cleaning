@@ -10,8 +10,7 @@ export class UserService {
 
     public getAuthToken(username: string, password: string): Observable<string> {
         return this.apiService.get(
-            'User',
-            'GetAuthToken',
+            'User/GetAuthToken',
             {
                 params: { username: username, password: password },
                 loadingIndicator: false
@@ -21,8 +20,7 @@ export class UserService {
 
     public loadUser(): Observable<IUser> {
         return this.apiService.get(
-            'User',
-            'LoadUser',
+            'User/LoadUser',
             {
                 params: { },
                 loadingIndicator: true
@@ -32,8 +30,7 @@ export class UserService {
 
     public updateUser(user: IUser): Observable<IUser> {
         return this.apiService.post(
-            'User',
-            'UpdateUser',
+            'User/UpdateUser',
             {
                 body: user,
                 loadingIndicator: true
