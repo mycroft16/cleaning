@@ -56,8 +56,8 @@ export class PropertyPeopleComponentPage {
 
   public sendText(person) {
     const title = 'Text ' + person.firstName;
-    const message = 'Send to ' + person.phoneMobile;
-    const link = 'sms:' + person.phoneMobile;
+    const message = 'Send to ' + this.formatDisplay(person.phoneMobile);
+    const link = 'sms:' + this.formatDial(person.phoneMobile);
     this.confirmSend(title, message, link);
   }
 
