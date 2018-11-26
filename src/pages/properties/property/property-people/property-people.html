@@ -5,7 +5,7 @@
             {{ person.firstName }} {{ person.lastName }}
         </ion-item>
         <ion-item-options side="right">
-            <button ion-button *ngIf="person.phoneHome !== null" (click)="makeCall(person)"><i class="far fa-phone"></i></button>
+            <button ion-button *ngIf="person.phoneHome !== null || person.phoneMobile !== null || person.phoneWork !== null" (click)="makeCall(person)"><i class="far fa-phone"></i></button>
             <button ion-button *ngIf="person.phoneMobile != null" (click)="sendText(person)"><i class="far fa-mobile-alt"></i></button>
             <button ion-button *ngIf="person.emailAddress !== null" (click)="sendEmail(person)"><i class="far fa-envelope"></i></button>
         </ion-item-options>
