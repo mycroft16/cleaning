@@ -12,6 +12,10 @@
       <i class="far fa-home"></i>
       &nbsp;Property
     </ion-segment-button>
+    <ion-segment-button value="rooms">
+      <i class="far fa-bed"></i>
+      &nbsp;Rooms
+    </ion-segment-button>
     <ion-segment-button value="people">
       <i class="far fa-users"></i>
       &nbsp;People
@@ -23,6 +27,7 @@
   </ion-segment>
 
   <property-info-component    *ngIf="propertyTab === 'property'"  [property]="property"></property-info-component>
-  <property-people-component  *ngIf="propertyTab === 'people'"    [property]="property"></property-people-component>
+  <property-rooms-component   *ngIf="propertyTab === 'rooms'"     [rooms]="property.rooms"></property-rooms-component>
+  <property-people-component  *ngIf="propertyTab === 'people'"    [people]="property.people"  [pets]="property.pets"></property-people-component>
   <property-notes-component   *ngIf="propertyTab === 'notes'"     [property]="property"></property-notes-component>
 </ion-content>

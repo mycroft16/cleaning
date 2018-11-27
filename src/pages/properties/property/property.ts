@@ -11,7 +11,7 @@ import { IProperty } from '../../../app/shared/interfaces/property.interface'
 export class PropertyPage {
 
   public property: IProperty;
-  public propertyTab: 'property' | 'people' | 'notes' = 'property';
+  public propertyTab: 'property' | 'rooms' | 'people' | 'notes' = 'property';
 
   constructor(public navCtrl: NavController, private store: AppStore) {
     this.property = this.store.snapshot(state => state.properties.activeProperty);

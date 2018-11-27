@@ -1,0 +1,13 @@
+<ion-card *ngFor="let room of rooms">
+    <ion-card-header>
+        {{ room.roomName }}
+    </ion-card-header>
+    <ion-card-content>
+        <ion-list *ngIf="room.steps.length > 0">
+            <ion-item *ngFor="let step of room.steps; let i = index">
+                {{ i + 1 }}. {{ step.stepText }}
+            </ion-item>
+        </ion-list>
+        <ion-item *ngIf="room.steps.length === 0">-- No Steps</ion-item>
+    </ion-card-content>
+</ion-card>

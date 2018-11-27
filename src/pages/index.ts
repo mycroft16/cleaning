@@ -7,6 +7,7 @@ import { PropertyPage } from './properties/property/property'
 import { PropertyInfoComponentPage } from './properties/property/property-info/property-info-component'
 import { PropertyNotesComponentPage } from './properties/property/property-notes/property-notes-component'
 import { PropertyPeopleComponentPage } from './properties/property/property-people/property-people-component'
+import { PropertyRoomsComponentPage } from './properties/property/property-rooms/property-rooms-component'
 import { SchedulePage } from './schedule/schedule'
 import { TabsPage } from './tabs/tabs'
 import { TodayPage } from './today/today'
@@ -23,6 +24,7 @@ export const PAGES = [
     PropertyInfoComponentPage,
     PropertyNotesComponentPage,
     PropertyPeopleComponentPage,
+    PropertyRoomsComponentPage,
     SchedulePage,
     TabsPage,
     TodayPage,

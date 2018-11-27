@@ -1,6 +1,7 @@
 import { Component, Input, ChangeDetectionStrategy } from '@angular/core';
 import { ActionSheetController, AlertController, NavController } from 'ionic-angular';
-import { IProperty } from '../../../../app/shared/interfaces/property.interface'
+import { IClient } from '../../../../app/shared/interfaces/client.interface'
+import { IPet } from '../../../../app/shared/interfaces/pet.interface'
 
 @Component({
   selector: 'property-people-component',
@@ -9,7 +10,8 @@ import { IProperty } from '../../../../app/shared/interfaces/property.interface'
 })
 export class PropertyPeopleComponentPage {
 
-  @Input() public property: IProperty;
+  @Input() public people: IClient[];
+  @Input() public pets: IPet[];
 
   constructor(public actionSheetCtrl: ActionSheetController, public alertCtrl: AlertController, public navCtrl: NavController) { }
 

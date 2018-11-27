@@ -1,6 +1,21 @@
 import { IClient } from './client.interface'
 import { IPet } from './pet.interface'
 
+export interface IRoomStep {
+    id: number;
+    room: number;
+    sortOrder: number;
+    stepText: string;
+}
+
+export interface IRoom {
+    id: number;
+    property: number;
+    sortOrder: number;
+    roomName: string;
+    steps: IRoomStep[];
+}
+
 export interface IProperty {
     id: number;
     account: number;
@@ -11,6 +26,7 @@ export interface IProperty {
     city: string;
     state: string;
     zip: number;
+    rooms: IRoom[];
     primaryContact: IClient;
     secondaryContact: IClient;
     people: IClient[];
