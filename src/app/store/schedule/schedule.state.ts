@@ -1,14 +1,17 @@
 import * as ScheduleActions from './schedule.actions'
 import { ISchedule } from '../../shared/interfaces/schedule.interface'
+import { IReview } from '../../shared/interfaces/review.interface'
 
 export interface State {
     list: ISchedule[];
     activeSchedule: ISchedule;
+    scheduleReviews: IReview[];
 }
 
 export const initialState: State = {
     list: null,
-    activeSchedule: null
+    activeSchedule: null,
+    scheduleReviews: null,
 }
 
 export function reducer(state: State = initialState, action: ScheduleActions.Any): State {
@@ -16,9 +19,21 @@ export function reducer(state: State = initialState, action: ScheduleActions.Any
 
     switch(action.type) {
 
-        // case NotificationsActions.LoadNotificationsSuccess.Type: {
-        //     return { ...state, ...{ list: action.response, activeNotification: null } }
-        // }
+        case ScheduleActions.LoadScheduleSuccess.Type: {
+            return { ...state, ...{ list: action.response } }
+        }
+
+        case ScheduleActions.SetActiveSchedule.Type: {
+            return { ...state, ...{ activeSchedule: state.list[action.scheduleIndex] } }
+        }
+
+        case ScheduleActions.ClearActiveSchedule.Type: {
+            return { ...state, ...{ activeSchedule: null } }
+        }
+
+        case ScheduleActions.LoadScheduleReviewsSuccess.Type: {
+            return { ...state, ... { scheduleReviews: action.response } }
+        }
 
         // case NotificationsActions.SetActiveNotification.Type: {
         //     return { ...state, ...{ activeNotification: state.list[action.notificationIndex] } }

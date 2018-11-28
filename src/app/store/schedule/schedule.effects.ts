@@ -20,6 +20,15 @@ export class ScheduleEffects {
             )
         );
 
+    @Effect()
+    public loadScheduleReviews: Observable<Action> = this.actions.ofType(ScheduleActions.LoadScheduleReviews.Type)
+        .pipe(
+            switchMap((action: ScheduleActions.LoadScheduleReviews) =>
+                this.service.loadScheduleReviews(action.scheduleId)
+                    .pipe(map(response => this.store.create(factory => factory.schedule.loadScheduleReviewsSuccess(response))))
+            )
+        )
+
     constructor(
         private actions: Actions,
         private store: AppStore,
