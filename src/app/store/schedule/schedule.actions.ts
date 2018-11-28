@@ -19,13 +19,6 @@ export class ActionFactory {
         return new LoadScheduleReviews(scheduleId);
     }
 
-    // public setActiveNotification(notificationIndex: number): SetActiveNotification {
-    //     return new SetActiveNotification(notificationIndex);
-    // }
-
-    // public clearActiveNotification(): ClearActiveNotification {
-    //     return new ClearActiveNotification();
-    // }
 }
 
 export class InternalActionFactory {
