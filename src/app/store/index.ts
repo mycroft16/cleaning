@@ -14,6 +14,10 @@ import { PropertiesEffects } from './properties/properties.effects'
 import { PropertiesService } from './properties/properties.service'
 import * as PropertiesState from './properties/properties.state'
 
+import { ScheduleEffects } from './schedule/schedule.effects'
+import { ScheduleService } from './schedule/schedule.service'
+import * as ScheduleState from './schedule/schedule.state'
+
 import { UserEffects } from './user/user.effects'
 import { UserService } from './user/user.service'
 import * as UserState from './user/user.state'
@@ -28,6 +32,7 @@ export const PROVIDERS: any[] = [
     ApiService,
     NotificationsService,
     PropertiesService,
+    ScheduleService,
     UserService,
     AppStore
 ];
@@ -35,12 +40,14 @@ export const PROVIDERS: any[] = [
 export const EFFECTS: ModuleWithProviders = EffectsModule.forRoot([
     NotificationsEffects,
     PropertiesEffects,
+    ScheduleEffects,
     UserEffects
 ]);
 
 export const STORES: any = {
     notifications: NotificationsState.reducer,
     properties: PropertiesState.reducer,
+    schedule: ScheduleState.reducer,
     user: UserState.reducer,
     loadingIndicator: LoadingIndicatorState.reducer
 }

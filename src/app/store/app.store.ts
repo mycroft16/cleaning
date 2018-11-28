@@ -11,6 +11,9 @@ import * as NotificationsState from './notifications/notifications.state'
 import * as PropertiesActions from './properties/properties.actions'
 import * as PropertiesState from './properties/properties.state'
 
+import * as ScheduleActions from './schedule/schedule.actions'
+import * as ScheduleState from './schedule/schedule.state'
+
 import * as UserActions from './user/user.actions'
 import * as UserState from './user/user.state'
 
@@ -19,12 +22,14 @@ import * as LoadingIndicatorState from './loading-indicator/loading-indicator.st
 
 export type NotificationsSatate = NotificationsState.State;
 export type PropertiesState = PropertiesState.State;
+export type ScheduleState = ScheduleState.State;
 export type UserState = UserState.State;
 export type LoadingIndicatorState = LoadingIndicatorState.State;
 
 export interface ActionFactory {
     readonly notifications: NotificationsActions.ActionFactory;
     readonly properties: PropertiesActions.ActionFactory;
+    readonly schedule: ScheduleActions.ActionFactory;
     readonly user: UserActions.ActionFactory;
     readonly loadingIndicator: LoadingIndicatorActions.ActionFactory;
 }
@@ -32,6 +37,7 @@ export interface ActionFactory {
 export interface InternalActionFactory {
     readonly notifications: NotificationsActions.InternalActionFactory;
     readonly properties: PropertiesActions.InternalActionFactory;
+    readonly schedule: ScheduleActions.InternalActionFactory;
     readonly user: UserActions.InternalActionFactory;
     readonly loadingIndicator: LoadingIndicatorActions.InternalActionFactory;
 }
@@ -39,6 +45,7 @@ export interface InternalActionFactory {
 export interface AppState {
     readonly notifications: NotificationsSatate;
     readonly properties: PropertiesState;
+    readonly schedule: ScheduleState;
     readonly user: UserState;
     readonly loadingIndicator: LoadingIndicatorState;
 }
@@ -49,6 +56,7 @@ export interface AppReducers {
 export const reducers: AppReducers = {
     notifications: NotificationsState.reducer,
     properties: PropertiesState.reducer,
+    schedule: ScheduleState.reducer,
     user: UserState.reducer,
     loadingIndicator: LoadingIndicatorState.reducer
 }
@@ -107,6 +115,7 @@ export class AppStore {
       private readonly actionFactory: ActionFactory = {
           notifications: new NotificationsActions.ActionFactory,
           properties: new PropertiesActions.ActionFactory,
+          schedule: new ScheduleActions.ActionFactory,
           user: new UserActions.ActionFactory,
           loadingIndicator: new LoadingIndicatorActions.ActionFactory
       }
@@ -114,6 +123,7 @@ export class AppStore {
       private readonly internalActionFactory: InternalActionFactory = {
           notifications: new NotificationsActions.InternalActionFactory,
           properties: new PropertiesActions.InternalActionFactory,
+          schedule: new ScheduleActions.InternalActionFactory,
           user: new UserActions.InternalActionFactory,
           loadingIndicator: new LoadingIndicatorActions.InternalActionFactory
       }
