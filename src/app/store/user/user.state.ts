@@ -31,7 +31,7 @@ export function reducer(state: State = initialState, action: UserActions.Any): S
         }
 
         case UserActions.ResetUser.Type: {
-            return { ...state, ...initialState }
+            return { ...initialState }
         }
 
         default: {
